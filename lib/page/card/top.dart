@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TopCard extends StatefulWidget {
-
-
   @override
   TopCardState createState() => TopCardState();
 }
