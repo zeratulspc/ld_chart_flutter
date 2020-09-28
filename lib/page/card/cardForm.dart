@@ -24,14 +24,16 @@ class CardFormState extends State<CardForm> {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     TextStyle titleStyle = Theme.of(context).textTheme.subtitle1;
     TextStyle listStyle = TextStyle(color: Colors.black87);
     return Card(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(left: 15,top: 15),
+            margin: EdgeInsets.only(left: 15,top: 15, bottom: 15),
             child: Text(title, style: titleStyle,),
           ),
           RadioListTile(
