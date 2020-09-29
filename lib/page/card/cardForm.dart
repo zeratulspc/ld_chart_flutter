@@ -3,21 +3,23 @@ import 'package:flutter/material.dart';
 class CardForm extends StatefulWidget {
   final int v1, v2, v3, v4, v5;
   final String title, s1, s2, s3, s4, s5;
+  final VoidCallback nextPage;
 
-  CardForm({this.v1, this.v2, this.v3, this.v4, this.v5,
+  CardForm({this.v1, this.v2, this.v3, this.v4, this.v5, this.nextPage,
     this.title, this.s1, this.s2, this.s3, this.s4, this.s5,
   });
 
   @override
-  CardFormState createState() => CardFormState(v1,v2,v3,v4,v5,title,s1,s2,s3,s4,s5);
+  CardFormState createState() => CardFormState(v1,v2,v3,v4,v5,nextPage,title,s1,s2,s3,s4,s5);
 }
 
 
 class CardFormState extends State<CardForm> {
   final int v1, v2, v3, v4, v5;
   final String title,s1,s2,s3,s4,s5;
+  final VoidCallback nextPage;
 
-  CardFormState(this.v1, this.v2, this.v3, this.v4, this.v5,
+  CardFormState(this.v1, this.v2, this.v3, this.v4, this.v5, this.nextPage,
     this.title, this.s1, this.s2, this.s3, this.s4, this.s5);
 
   int v = 0;
@@ -44,6 +46,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
+              nextPage();
             },
           ),
           RadioListTile(
@@ -54,6 +57,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
+              nextPage();
             },
           ),
           RadioListTile(
@@ -64,6 +68,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
+              nextPage();
             },
           ),
           RadioListTile(
@@ -74,6 +79,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
+              nextPage();
             },
           ),
           RadioListTile(
@@ -84,6 +90,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
+              nextPage();
             },
           ),
         ],
