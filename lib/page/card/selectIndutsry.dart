@@ -22,8 +22,10 @@ class SelectIndustryState extends State<SelectIndustry> {
             child: Text("업종 선택", style: titleStyle,),
           ),
           Container(
-            margin: EdgeInsets.only(left: 15,top: 15, bottom: 15),
-            child: Text("업종 선택", style: titleStyle,),
+            width: screenSize.width/1.1,
+            height: screenSize.height/1.4,
+            //color: Colors.green,
+            margin: EdgeInsets.only(left: 15,bottom: 15),
           ),
         ],
       ),

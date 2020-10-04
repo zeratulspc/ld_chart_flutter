@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
 
-class CardForm extends StatefulWidget {
-  final int v1, v2, v3, v4, v5;
-  final String title, s1, s2, s3, s4, s5;
-  final VoidCallback nextPage;
+typedef void Selected(int value);
 
-  CardForm({this.v1, this.v2, this.v3, this.v4, this.v5, this.nextPage,
+class CardForm extends StatefulWidget {
+  final int v1, v2, v3, v4, v5, vi;
+  final String title, s1, s2, s3, s4, s5;
+  final Selected nextPage;
+
+  CardForm({this.v1, this.v2, this.v3, this.v4, this.v5, this.nextPage, this.vi,
     this.title, this.s1, this.s2, this.s3, this.s4, this.s5,
   });
 
   @override
-  CardFormState createState() => CardFormState(v1,v2,v3,v4,v5,nextPage,title,s1,s2,s3,s4,s5);
+  CardFormState createState() => CardFormState(v1,v2,v3,v4,v5,nextPage,vi,title,s1,s2,s3,s4,s5,);
 }
 
 
 class CardFormState extends State<CardForm> {
-  final int v1, v2, v3, v4, v5;
+  final int v1, v2, v3, v4, v5, vi; // vi : 초기화용
   final String title,s1,s2,s3,s4,s5;
-  final VoidCallback nextPage;
+  final Selected nextPage;
 
-  CardFormState(this.v1, this.v2, this.v3, this.v4, this.v5, this.nextPage,
+  CardFormState(this.v1, this.v2, this.v3, this.v4, this.v5, this.nextPage, this.vi,
     this.title, this.s1, this.s2, this.s3, this.s4, this.s5);
 
   int v = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    if(vi != 0) {
+      setState(() {
+        v = vi;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +58,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
-              nextPage();
+              nextPage(c);
             },
           ),
           RadioListTile(
@@ -57,7 +69,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
-              nextPage();
+              nextPage(c);
             },
           ),
           RadioListTile(
@@ -68,7 +80,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
-              nextPage();
+              nextPage(c);
             },
           ),
           RadioListTile(
@@ -79,7 +91,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
-              nextPage();
+              nextPage(c);
             },
           ),
           RadioListTile(
@@ -90,7 +102,7 @@ class CardFormState extends State<CardForm> {
               setState(() {
                 v = c;
               });
-              nextPage();
+              nextPage(c);
             },
           ),
         ],
