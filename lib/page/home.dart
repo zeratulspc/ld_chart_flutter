@@ -71,7 +71,14 @@ class HomeState extends State<Home> {
                     });
                   },
                 ),
-                SelectIndustry(),
+                SelectIndustry(
+                  vi: v5,
+                  nextPage: (int v) {
+                    setState(() {
+                      v5 = v;
+                    });
+                  },
+                ),
               ],
             ),
           ),
