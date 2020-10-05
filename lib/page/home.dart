@@ -3,6 +3,7 @@ import 'dart:wasm';
 import 'package:flutter/material.dart';
 import 'package:ld_chart_flutter/page/card/cardForm.dart';
 import 'package:ld_chart_flutter/page/card/selectIndutsry.dart';
+import 'package:ld_chart_flutter/page/chart/chartpage.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Home extends StatefulWidget {
@@ -13,10 +14,25 @@ class Home extends StatefulWidget {
 class HomeState extends State<Home> {
   PageController pageController = PageController();
   int v1,v2,v3,v4,v5 = 0;
+  bool isAllSelected = false;
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: isAllSelected ? FloatingActionButton.extended(
+        label: Text("결과확인",),
+        onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => ChartPage(v1: v1,v2: v2,v3: v3,v4: v4,v5: v5,),
+            ));
+        },
+      ) : null,
       appBar: AppBar(
         title: Text("LD CHART"),
       ),
@@ -36,6 +52,11 @@ class HomeState extends State<Home> {
                     setState(() {
                       v1 = v;
                     });
+                    if(v1 != 0 && v2 != 0 && v3 != 0 && v4 != 0 && v5 != 0) {
+                      setState(() {
+                        isAllSelected = true;
+                      });
+                    }
                   },
                 ),
                 CardForm(
@@ -47,6 +68,11 @@ class HomeState extends State<Home> {
                     setState(() {
                       v2 = v;
                     });
+                    if(v1 != 0 && v2 != 0 && v3 != 0 && v4 != 0 && v5 != 0) {
+                      setState(() {
+                        isAllSelected = true;
+                      });
+                    }
                   },
                 ),
                 CardForm(
@@ -58,6 +84,11 @@ class HomeState extends State<Home> {
                     setState(() {
                       v3 = v;
                     });
+                    if(v1 != 0 && v2 != 0 && v3 != 0 && v4 != 0 && v5 != 0) {
+                      setState(() {
+                        isAllSelected = true;
+                      });
+                    }
                   },
                 ),
                 CardForm(
@@ -69,6 +100,11 @@ class HomeState extends State<Home> {
                     setState(() {
                       v4 = v;
                     });
+                    if(v1 != 0 && v2 != 0 && v3 != 0 && v4 != 0 && v5 != 0) {
+                      setState(() {
+                        isAllSelected = true;
+                      });
+                    }
                   },
                 ),
                 SelectIndustry(
@@ -77,6 +113,11 @@ class HomeState extends State<Home> {
                     setState(() {
                       v5 = v;
                     });
+                    if(v1 != 0 && v2 != 0 && v3 != 0 && v4 != 0 && v5 != 0) {
+                      setState(() {
+                        isAllSelected = true;
+                      });
+                    }
                   },
                 ),
               ],
@@ -85,10 +126,10 @@ class HomeState extends State<Home> {
           Container(
             margin: EdgeInsets.only(bottom: 15),
             alignment: Alignment.bottomCenter,
-            child: SmoothPageIndicator(
+            child: isAllSelected ? Text("") : SmoothPageIndicator(
               controller: pageController,
               count: 5,
-            )
+            ),
           ),
         ],
       ),
