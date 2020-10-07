@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ld_chart_flutter/page/chart/chartCard.dart';
 
-import 'package:ld_chart_flutter/page/chart/chartpage.dart';
 
 class ChartPage extends StatefulWidget {
   final int v1,v2,v3,v4,v5;
@@ -23,7 +22,14 @@ class ChartPageState extends State<ChartPage> {
       appBar: AppBar(
         title: Text("계산결과"),
       ),
-      body: ChartCard.withSampleData(),
+      body: ListView(
+        children: [
+          Container(
+            height: 300,
+            child: ChartCard.withSampleData(),
+          ),
+        ],
+      ),
     );
   }
 

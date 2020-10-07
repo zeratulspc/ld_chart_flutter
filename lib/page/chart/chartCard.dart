@@ -34,24 +34,19 @@ class ChartCard extends StatelessWidget {
 
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final data = [
-      OrdinalSales('2020', 100000),
-      OrdinalSales('2021', 300000),
-      OrdinalSales('2022', 500000),
-      OrdinalSales('2023', 700000),
-      OrdinalSales('2024', 900000),
-      OrdinalSales('2025', 1100000),
-      OrdinalSales('2026', 1300000),
-      OrdinalSales('2027', 1500000),
+      OrdinalSales('현재', 300),
+      OrdinalSales('6개월 후', 2100),
     ];
 
     return [
       charts.Series<OrdinalSales, String>(
+          colorFn: (_, __) => charts.MaterialPalette.indigo.shadeDefault,
           id: 'Sales',
           domainFn: (OrdinalSales sales, _) => sales.year,
           measureFn: (OrdinalSales sales, _) => sales.sales,
           data: data,
           labelAccessorFn: (OrdinalSales sales, _) =>
-          '${sales.year}년: ${NumberFormat("###,###,###,###,###,###").format(sales.sales).replaceAll('', '')}원')
+          '${sales.year} : ${NumberFormat("###,###,###,###,###,###").format(sales.sales).replaceAll('', '')}만원')
     ];
   }
 
