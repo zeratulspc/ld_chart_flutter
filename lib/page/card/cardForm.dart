@@ -39,74 +39,80 @@ class CardFormState extends State<CardForm> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    TextStyle titleStyle = Theme.of(context).textTheme.subtitle1;
+    TextStyle titleStyle = Theme.of(context).textTheme.headline6;
     TextStyle listStyle = TextStyle(color: Colors.black87);
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.only(left: 15,top: 15, bottom: 15),
-            child: Text(title, style: titleStyle,),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15,top: 15, bottom: 5),
+                child: Text(title, style: titleStyle,),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: v1,
+                title: Text(s1, style: listStyle,),
+                onChanged: (int c) {
+                  setState(() {
+                    v = c;
+                  });
+                  nextPage(c);
+                },
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: v2,
+                title: Text(s2, style: listStyle,),
+                onChanged: (int c) {
+                  setState(() {
+                    v = c;
+                  });
+                  nextPage(c);
+                },
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: v3,
+                title: Text(s3, style: listStyle,),
+                onChanged: (int c) {
+                  setState(() {
+                    v = c;
+                  });
+                  nextPage(c);
+                },
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: v4,
+                title: Text(s4, style: listStyle,),
+                onChanged: (int c) {
+                  setState(() {
+                    v = c;
+                  });
+                  nextPage(c);
+                },
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: v5,
+                title: Text(s5, style: listStyle,),
+                onChanged: (int c) {
+                  setState(() {
+                    v = c;
+                  });
+                  nextPage(c);
+                },
+              ),
+              SizedBox(height: 15,),
+            ],
           ),
-          RadioListTile(
-            groupValue: v,
-            value: v1,
-            title: Text(s1, style: listStyle,),
-            onChanged: (int c) {
-              setState(() {
-                v = c;
-              });
-              nextPage(c);
-            },
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: v2,
-            title: Text(s2, style: listStyle,),
-            onChanged: (int c) {
-              setState(() {
-                v = c;
-              });
-              nextPage(c);
-            },
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: v3,
-            title: Text(s3, style: listStyle,),
-            onChanged: (int c) {
-              setState(() {
-                v = c;
-              });
-              nextPage(c);
-            },
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: v4,
-            title: Text(s4, style: listStyle,),
-            onChanged: (int c) {
-              setState(() {
-                v = c;
-              });
-              nextPage(c);
-            },
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: v5,
-            title: Text(s5, style: listStyle,),
-            onChanged: (int c) {
-              setState(() {
-                v = c;
-              });
-              nextPage(c);
-            },
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

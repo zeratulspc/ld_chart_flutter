@@ -26,6 +26,7 @@ class HomeState extends State<Home> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: isAllSelected ? FloatingActionButton.extended(
+        icon: Icon(Icons.keyboard_tab),
         label: Text("결과확인",),
         onPressed: (){
             Navigator.push(context, MaterialPageRoute(

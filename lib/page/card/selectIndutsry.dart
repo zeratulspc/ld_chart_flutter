@@ -52,73 +52,79 @@ class SelectIndustryState extends State<SelectIndustry> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    TextStyle titleStyle = Theme.of(context).textTheme.subtitle1;
+    TextStyle titleStyle = Theme.of(context).textTheme.headline6;
     TextStyle listStyle = TextStyle(color: Colors.black87);
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.only(left: 15,top: 15, bottom: 15),
-            child: Text("업종 선택", style: titleStyle,),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Card(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 15,top: 15, bottom: 5),
+                child: Text("업종 선택", style: titleStyle,),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 1,
+                title: Text("음식점", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 2,
+                title: Text("인테리어", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 3,
+                title: Text("헬스", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 4,
+                title: Text("학원", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 5,
+                title: Text("병원", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 6,
+                title: Text("분양", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 7,
+                title: Text("문화", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 8,
+                title: Text("서비스", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              RadioListTile(
+                groupValue: v,
+                value: 9,
+                title: Text("기타", style: listStyle,),
+                onChanged: (int v) => onChanged(v),
+              ),
+              SizedBox(height: 15,),
+            ],
           ),
-          RadioListTile(
-            groupValue: v,
-            value: 1,
-            title: Text("음식점", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 2,
-            title: Text("인테리어", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 3,
-            title: Text("헬스", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 4,
-            title: Text("학원", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 5,
-            title: Text("병원", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 6,
-            title: Text("분양", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 7,
-            title: Text("문화", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 8,
-            title: Text("서비스", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-          RadioListTile(
-            groupValue: v,
-            value: 9,
-            title: Text("기타", style: listStyle,),
-            onChanged: (int v) => onChanged(v),
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }
