@@ -127,6 +127,7 @@ class HomeState extends State<Home> {
           Container(
             margin: EdgeInsets.only(bottom: 15),
             alignment: Alignment.bottomCenter,
+            //height: 15,
             child: isAllSelected ? Text("") : SmoothPageIndicator(
               controller: pageController,
               count: 5,

@@ -25,8 +25,8 @@ class ChartPageState extends State<ChartPage> {
       body: ListView(
         children: [
           Container(
-            height: 300,
-            child: ChartCard.withSampleData(),
+            height: 200,
+            child: ChartCard.createData(v1,v2,v3,v4,v5),
           ),
         ],
       ),
