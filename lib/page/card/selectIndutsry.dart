@@ -52,69 +52,105 @@ class SelectIndustryState extends State<SelectIndustry> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    TextStyle titleStyle = Theme.of(context).textTheme.headline6;
-    TextStyle listStyle = TextStyle(color: Colors.black87);
+    TextStyle titleStyle = TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 26);
+    TextStyle listStyle = TextStyle(color: Colors.white70);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Card(
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Colors.deepPurpleAccent, Colors.deepOrangeAccent]
+              ),
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0,3)
+                )
+              ]
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                margin: EdgeInsets.only(left: 15,top: 15, bottom: 5),
-                child: Text("업종 선택", style: titleStyle,),
+                margin: EdgeInsets.only(left: 30,top: 30, bottom: 0),
+                child: Text("업종선택", style: titleStyle,),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 30,top: 0, bottom: 10),
+                child: Text("업종을 선택해주세요", style: listStyle,),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  child: Divider(color: Colors.white, indent: 20, endIndent: 20,),
+                ),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 1,
                 title: Text("음식점", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 2,
                 title: Text("인테리어", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 3,
                 title: Text("헬스", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 4,
                 title: Text("학원", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 5,
                 title: Text("병원", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 6,
                 title: Text("분양", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 7,
                 title: Text("문화", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 8,
                 title: Text("서비스", style: listStyle,),
                 onChanged: (int v) => onChanged(v),
               ),
               RadioListTile(
+                activeColor: Colors.white,
                 groupValue: v,
                 value: 9,
                 title: Text("기타", style: listStyle,),
