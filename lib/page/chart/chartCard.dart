@@ -9,9 +9,9 @@ class ChartCard extends StatelessWidget {
 
   ChartCard(this.seriesList, {this.animate});
 
-  factory ChartCard.withSampleData() {
+  factory ChartCard.createData(int v1,v2,v3,v4,v5) {
     return ChartCard(
-      _createSampleData(),
+      _computeData(v1,v2,v3,v4,v5),
       animate: true,
     );
   }
@@ -32,10 +32,18 @@ class ChartCard extends StatelessWidget {
     );
   }
 
-  static List<charts.Series<OrdinalSales, String>> _createSampleData() {
+  static List<charts.Series<OrdinalSales, String>> _computeData(int v1,v2,v3,v4,v5) {
+
+    //1 종업원 수
+    //2 일일매출
+    //3 주간매출
+    //4 월간매출
+    //5 업종(1~9)
+    double after = v4+(v4*0.5);
     final data = [
-      OrdinalSales('현재', 300),
-      OrdinalSales('6개월 후', 2100),
+      OrdinalSales('현재', v4),
+      OrdinalSales('6개월 후', after.round()),
+      OrdinalSales('12개월 후', (after+after).round()),
     ];
 
     return [
@@ -46,7 +54,7 @@ class ChartCard extends StatelessWidget {
           measureFn: (OrdinalSales sales, _) => sales.sales,
           data: data,
           labelAccessorFn: (OrdinalSales sales, _) =>
-          '${sales.year} : ${NumberFormat("###,###,###,###,###,###").format(sales.sales).replaceAll('', '')}만원')
+          '${sales.year} : ${NumberFormat("###,###,###,###,###,###").format(sales.sales).replaceAll('', '')}원')
     ];
   }
 
